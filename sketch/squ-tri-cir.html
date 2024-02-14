@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>p5.js example</title>
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/p5.min.js"></script>
+<!-- <script src="/assets/js/p5.sound.js"></script> -->
+<!-- <script src="/assets/js/sketch.js"></script> -->
+</head>
+<body>
+  <h1>
+    <a href="/index.html">mosonic p5.js experiments</a>
+  </h1>
+<script>
+var canvas; // Damit FullScreen 
+let colors = ['#f1f6fb', '#ff410d', '#ffB20d', '#aec2e0', '#748aa6', '#267fb5', '#14191f']
+let inc = 0;
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+function setup() {
+  canvas = createCanvas(windowWidth, windowHeight); // Damit FullScreen 
+  canvas.position(0,0); // Damit FullScreen 
+  canvas.style('z-index', '-1'); // Damit FullScreen 
+  xStart = 300;
+  yStart = 300;
+  objWidth = 300;
+}
+
+function draw() {
+  background(20, 25, 31);
+  ellipseMode(CORNER);
+
+  stroke(255,178,13,15);
+  strokeWeight(0);
+
+  // fill(255,178,13,150);
+  // square(xStart, yStart, objWidth);
+
+  // fill(255,65,13,150);
+  // ellipse(xStart, yStart, objWidth);
+
+  // fill(38,127,181,150);
+  // triangle(
+  //   xStart + objWidth/2, yStart,
+  //   xStart + objWidth, yStart + objWidth,
+  //   xStart, yStart + objWidth);
+
+  // moving objects
+  fill(255,178,13);
+  square(xStart + inc * -0.25 , yStart, objWidth);
+
+  fill(255,65,13,inc/2);
+  ellipse(xStart + inc/2 * 0.5 , yStart, objWidth);
+
+  fill(38,127,181,inc/2);
+  triangle(
+    xStart + objWidth/2 + inc, yStart,
+    xStart + objWidth + inc, yStart + objWidth,
+    xStart + inc, yStart + objWidth);
+
+
+
+  inc = inc + 1;
+  if (inc > objWidth) {
+    noLoop();
+  }
+  console.log(inc);
+  // fill(colors[0]);
+  // ellipseMode(CENTER);
+  // ellipse(xStart + objWidth/2, yStart, 10);
+  // ellipse(xStart + objWidth, yStart + objWidth, 20);
+  // ellipse(xStart, yStart + objWidth, 30);
+
+}
+
+</script>
+</body>
+</html>

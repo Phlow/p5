@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>p5.js example</title>
+<link rel="stylesheet" href="/assets/css/styles.css">
+<script src="/assets/js/p5.min.js"></script>
+<script src="/assets/js/p5.sound.js"></script>
+</head>
+<body>
+  <h1>
+    <a href="/index.html">mosonic p5.js experiments</a>
+  </h1>
+
+<pre>
+function keyPressed() {
+  if (key === " ") {
+    // Überprüft, ob die Leertaste gedrückt wurde
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = String(now.getMonth() + 1).padStart(2, "0"); // Monat von 0-11, daher +1 und führende Nullen hinzufügen
+    let day = String(now.getDate()).padStart(2, "0");
+    let hours = String(now.getHours()).padStart(2, "0");
+    let minutes = String(now.getMinutes()).padStart(2, "0");
+
+    let filename = `${year}-${month}-${day}-${hours}-${minutes}-bild.png`;
+    saveCanvas(filename, "png"); // Speichert das Bild mit dem neuen Dateinamen
+  }
+} // func screenshot
+</pre>
+<script>
+function keyPressed() {
+  if (key === " ") {
+    // Überprüft, ob die Leertaste gedrückt wurde
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = String(now.getMonth() + 1).padStart(2, "0"); // Monat von 0-11, daher +1 und führende Nullen hinzufügen
+    let day = String(now.getDate()).padStart(2, "0");
+    let hours = String(now.getHours()).padStart(2, "0");
+    let minutes = String(now.getMinutes()).padStart(2, "0");
+
+    let filename = `${year}-${month}-${day}-${hours}-${minutes}-bild.png`;
+    saveCanvas(filename, "png"); // Speichert das Bild mit dem neuen Dateinamen
+  }
+} // func screenshot
+</script>
+</body>
+</html>
